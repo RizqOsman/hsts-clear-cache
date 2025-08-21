@@ -1,3 +1,9 @@
 requests>=2.25.0
 pytest>=6.0.0
 logging>=0.5.1.2
+argparse>=1.4.0
+scapy>=2.4.5  # For network packet manipulation
+pyOpenSSL>=21.0.0  # For SSL/TLS handling
+cryptography>=36.0.0  # For cryptographic operations
+python-nmap>=0.7.1  # For network scanning (optional)
+tabulate>=0.8.9  # For pretty-printing tables

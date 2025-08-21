@@ -10,6 +10,7 @@ This tool helps security professionals test and verify HSTS configurations on do
 2. Clear browser-specific HSTS caches
 3. Test various HSTS bypass methods
 4. Document results across different platforms and browsers
+5. Perform advanced HSTS bypass techniques on Kali Linux using MITM attacks
 
 ## Legal Requirements
 
@@ -86,6 +87,21 @@ print(bypass_results)
 tester.save_results("my_test_results.json")
 ```
 
+### Comprehensive Testing
+
+For a complete assessment combining browser-based and MITM-based techniques:
+
+```bash
+# Basic comprehensive test on all browsers
+python hsts_comprehensive.py example.com
+
+# Test specific browsers
+python hsts_comprehensive.py example.com --browsers chrome firefox
+
+# Full test including Kali Linux MITM attack (requires root on Linux)
+sudo python hsts_comprehensive.py example.com --kali --interface eth0 --gateway 192.168.1.1 --target 192.168.1.100
+```
+
 ## Testing Methods
 
 The tool includes several HSTS bypass testing methods:
@@ -95,6 +111,7 @@ The tool includes several HSTS bypass testing methods:
 3. **Local development**: Use localhost/127.0.0.1 access methods
 4. **SSL verification**: Test with SSL verification disabled
 5. **Proxy tools**: Documentation for using with proxy tools like Burp Suite
+6. **MITM attacks**: Advanced MITM-based HSTS bypass techniques (Kali Linux)
 
 ## Browser-Specific Notes
 
@@ -122,6 +139,20 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Kali Linux HSTS Bypass
+
+In addition to the browser-based methods, this project includes advanced HSTS bypass techniques for security professionals using Kali Linux:
+
+```bash
+# Example: Target a specific device
+sudo python3 hsts_bypass_kali.py -i eth0 -g 192.168.1.1 -t 192.168.1.100
+
+# Example: Use advanced MITM proxy method
+sudo python3 hsts_bypass_kali.py -i eth0 -g 192.168.1.1 -t 192.168.1.100 -m mitmproxy
+```
+
+For detailed instructions on using these advanced techniques, see the [Kali Linux HSTS Bypass Guide](docs/kali_linux_guide.md).
 
 ## Disclaimer
 
